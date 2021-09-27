@@ -48,6 +48,19 @@
     draw();
   }
 
+  function put2ToRandomCell() {
+    const emptyCells = [];
+    data.forEach(function (rowData, i) {
+      rowData.forEach(function (cellData, j) {
+        if (!cellData) {
+          emptyCells.push([i, j]);
+        }
+      });
+    });
+    const randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+    data[randomCell[0]][randomCell[1]] = 2;
+  }
+
 </script>
 </body>
 </html>
