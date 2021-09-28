@@ -191,7 +191,18 @@
         break;
       }
     }
-    
+
+    if (data.flat().includes(2048)) { // 승리
+      draw();
+      setTimeout(() => {
+        alert('축하합니다. 2048을 만들었습니다!');
+      }, 0);
+    } else if (!data.flat().includes(0)) { // 빈칸이 없으면 패배
+      alert(`패배했습니다... ${$score.textContent}점`);
+    } else {
+      put2ToRandomCell();
+      draw();
+    }
   }
 
   window.addEventListener('keyup' , (event) => {
